@@ -1,10 +1,10 @@
 # PocketMap Privacy Policy
 
-_Last updated: 2026-11-02 (0.3.1). Applies to the PocketMap iOS app (co.superduperai.pocketmap), version 0.3 and later._
+_Last updated: 2026-11-02 (0.4.0). Applies to the PocketMap iOS app (co.superduperai.pocketmap), version 0.3 and later._
 
 **App Privacy label: Data Not Collected.** PocketMap has no account, no analytics and no
 advertising. We, the developer, receive nothing from the app. The one thing we host ourselves
-is a folder of static routing-graph files (see below); it keeps no logs we read.
+is a folder of static routing-graph and survival-POI files (see below); it keeps no logs we read.
 
 ## Location
 
@@ -22,12 +22,19 @@ does. None carries an identifier for you or your device beyond that.
 - **OpenFreeMap** (`tiles.openfreemap.org`): map style, fonts and tiles, when you view the map
   online or download a region for offline use. Requests contain the tile coordinates, which reveal
   the area you are looking at. See [openfreemap.org](https://openfreemap.org).
-- **PocketMap graph tiles** (`pub-1a1f840e4f3a40528a52b437de2fb49c.r2.dev`, static files in a
-  Cloudflare R2 bucket published by us; `pocketmap-graph.pages.dev`, the older Cloudflare Pages
-  host, is asked only when the first does not answer): the routing graph for an area, downloaded
-  together with a region so that routes can be computed on the phone with no network. Requests
-  contain the tile coordinates of the area you download, nothing else. Cloudflare's own handling
-  of requests is described in [Cloudflare's privacy policy](https://www.cloudflare.com/privacypolicy/).
+- **PocketMap graph and survival-POI tiles** (`pub-1a1f840e4f3a40528a52b437de2fb49c.r2.dev`,
+  static files in a Cloudflare R2 bucket published by us; `pocketmap-graph.pages.dev`, the older
+  Cloudflare Pages host, is asked only when the first does not answer): the routing graph for an
+  area and, from 0.4, the water / shelter / medical points of interest for the same area (the
+  `poi/` prefix of the same bucket), downloaded together with a region so that routes and the
+  Nearby screen work on the phone with no network. Requests contain the tile coordinates of the
+  area you download, nothing else. Cloudflare's own handling of requests is described in
+  [Cloudflare's privacy policy](https://www.cloudflare.com/privacypolicy/).
+- **Terrain tiles on AWS Open Data** (`s3.amazonaws.com`, bucket `elevation-tiles-prod`, the
+  Tilezen/Mapzen terrain tiles, from 0.4): elevation tiles for an area, downloaded together with a
+  region, for contour lines and walking times that account for climbs. Requests contain the tile
+  coordinates of the area you download, nothing else. Amazon's handling of requests to a public
+  bucket is described in the [AWS privacy notice](https://aws.amazon.com/privacy/).
 - **Nominatim** (`nominatim.openstreetmap.org`): only when you submit a search. The request
   contains the text you searched for. See the
   [OSMF privacy policy](https://osmfoundation.org/wiki/Privacy_Policy).
@@ -39,14 +46,15 @@ does. None carries an identifier for you or your device beyond that.
   the optional wind and air-quality overlay. The request contains a grid of coordinates over the
   visible map, not your position. See [open-meteo.com](https://open-meteo.com/en/terms).
 
-Routes computed on the phone, the compass, daylight, sky-north and position screens, track
-recording and GPX import make no requests at all.
+Routes computed on the phone, contour lines, the compass, nearby, daylight, sky-north and
+position screens, track recording and GPX import make no requests at all.
 
 ## What lives on the phone
 
-Downloaded map regions, their routing-graph tiles, imported and recorded GPX tracks, saved spots,
-the last weather answer and your settings are stored in the app's own storage. Deleting a region
-in the app removes its map and graph tiles; deleting the app removes everything.
+Downloaded map regions, their routing-graph, elevation and POI tiles, imported and recorded GPX
+tracks, saved spots, the last weather answer and your settings are stored in the app's own
+storage. Deleting a region in the app removes its map, graph, elevation and POI tiles; deleting
+the app removes everything.
 
 ## Data we collect
 
