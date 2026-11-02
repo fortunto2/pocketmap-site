@@ -1,6 +1,6 @@
 # PocketMap Privacy Policy
 
-_Last updated: 2026-11-02. Applies to the PocketMap iOS app (co.superduperai.pocketmap), version 0.3 and later._
+_Last updated: 2026-11-02 (0.3.1). Applies to the PocketMap iOS app (co.superduperai.pocketmap), version 0.3 and later._
 
 **App Privacy label: Data Not Collected.** PocketMap has no account, no analytics and no
 advertising. We, the developer, receive nothing from the app. The one thing we host ourselves
@@ -22,11 +22,12 @@ does. None carries an identifier for you or your device beyond that.
 - **OpenFreeMap** (`tiles.openfreemap.org`): map style, fonts and tiles, when you view the map
   online or download a region for offline use. Requests contain the tile coordinates, which reveal
   the area you are looking at. See [openfreemap.org](https://openfreemap.org).
-- **PocketMap graph tiles** (`pocketmap-graph.pages.dev`, static files on Cloudflare Pages,
-  published by us): the routing graph for an area, downloaded together with a region so that
-  routes can be computed on the phone with no network. Requests contain the tile coordinates of the
-  area you download, nothing else. Cloudflare's own handling of requests is described in
-  [Cloudflare's privacy policy](https://www.cloudflare.com/privacypolicy/).
+- **PocketMap graph tiles** (`pub-1a1f840e4f3a40528a52b437de2fb49c.r2.dev`, static files in a
+  Cloudflare R2 bucket published by us; `pocketmap-graph.pages.dev`, the older Cloudflare Pages
+  host, is asked only when the first does not answer): the routing graph for an area, downloaded
+  together with a region so that routes can be computed on the phone with no network. Requests
+  contain the tile coordinates of the area you download, nothing else. Cloudflare's own handling
+  of requests is described in [Cloudflare's privacy policy](https://www.cloudflare.com/privacypolicy/).
 - **Nominatim** (`nominatim.openstreetmap.org`): only when you submit a search. The request
   contains the text you searched for. See the
   [OSMF privacy policy](https://osmfoundation.org/wiki/Privacy_Policy).
