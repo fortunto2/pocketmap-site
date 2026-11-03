@@ -1,3 +1,6 @@
 title: PocketMap
 description: Lightweight offline maps for iPhone. No account, no tracking.
 theme: jekyll-theme-minimal
+# Old pages redirect to their one canonical home (superduperai-site docs/ecosystem.md, step 4).
+plugins:
+  - jekyll-redirect-from
